@@ -5,10 +5,19 @@ This code base is using the [Julia Language](https://julialang.org/) and
 to make a reproducible scientific project named
 > Fredkin_Motzkin_MPS
 
+## Associated Publication
+
+This repository was used to perform the numerical simulations for the paper:
+
+Olai B. Mykland, Zhao Zhang, Leveraging Translational and Scaling Invariance of Criticality, arXiv: https://arxiv.org/abs/2507.14656
+
+The data in `data/` and the figures in `plots/` correspond exactly to the results presented in the paper.
+
+### Download
 To (locally) reproduce this project, do the following:
 
-0. Download this code base. Notice that raw data are typically not included in the
-   git-history and may need to be downloaded independently.
+0. Download this code base. Notice that the data and the plots (about 1.5 MB) are included in the
+   git-history and will be downloaded.
 1. Open a Julia console and do:
    ```
    julia> using Pkg
