@@ -38,26 +38,30 @@ qg1_xi_pairs_M = collect(pairs(qg1_curve_fit_M))
 slope_M, intercept_M = fit_line(log.(log.(first.(qg1_xi_pairs_M))), log.(last.(qg1_xi_pairs_M)))
 
 # Round to 1 decimal
-slope_F_string = @sprintf("%.2f", slope_F)
+slope_F_string = @sprintf("%.2f", abs(slope_F))
 intercept_F_string = @sprintf("%.1f", abs(intercept_F))
+slope_F_sgn = slope_F < 0 ? L"-" : L"+"
+slope_F_string = slope_F_sgn * slope_F_string
 intercept_F_sgn = intercept_F < 0 ? L"-" : L"+"
 
-slope_M_string = @sprintf("%.2f", slope_M)
+slope_M_string = @sprintf("%.2f", abs(slope_M))
 intercept_M_string = @sprintf("%.1f", abs(intercept_M))
+slope_M_sgn = slope_M < 0 ? L"-" : L"+"
+slope_M_string = slope_M_sgn * slope_M_string
 intercept_M_sgn = intercept_M < 0 ? L"-" : L"+"
 
 
 # Build LaTeX-style label: log10(ξ) = m * log10(1 - q) + b
-F_fit_label = latexstring(L"y\propto\;", slope_F_string, L"\log(|\tau|) ")
+F_fit_label = latexstring(L"y\propto\;", slope_F_string, L"\log(-\tau) ")
 F_fit_vals = slope_F .* log.(log.(qg1_vals)) .+ intercept_F
-M_fit_label = latexstring(L"y\propto\;", slope_M_string, L"\log(|\tau|) ")
+M_fit_label = latexstring(L"y\propto\;", slope_M_string, L"\log(-\tau) ")
 M_fit_vals = slope_M .* log.(log.(qg1_vals)) .+ intercept_M
 
 
 
 # Plot Fredkin
 scatter(log.(log.(first.(qg1_xi_pairs_F))), log.(last.(qg1_xi_pairs_F)),
-    xlabel = L"\log(|\tau|)",
+    xlabel = L"\log(-\tau)",
     ylabel = L"\log(w(\tau))",
     label = L"\log(w(\tau))",
     marker = :circle,
@@ -75,7 +79,7 @@ savefig(plotsdir("Correlation_length_MPS", savename("Fredkin_domain_wall_width_M
 
 # Plot Motzkin
 scatter(log.(log.(first.(qg1_xi_pairs_M))), log.(last.(qg1_xi_pairs_M)),
-    xlabel = L"\log(|\tau|)",
+    xlabel = L"\log(-\tau)",
     ylabel = L"\log(w(\tau))",
     label = L"\log(w(\tau))",
     marker = :circle,

@@ -40,15 +40,22 @@ slope_M, intercept_M = log_xi_q_func_coeffs_M
 
 
 # Round to 1 decimal
-slope_str_F = @sprintf("%.2f", slope_F)
-intercept_str_F = @sprintf("%.2f", abs(intercept_F))
-slope_str_M = @sprintf("%.2f", slope_M)
-intercept_str_M = @sprintf("%.2f", abs(intercept_M))
+slope_F_string = @sprintf("%.2f", abs(slope_F))
+intercept_F_string = @sprintf("%.1f", abs(intercept_F))
+slope_F_sgn = slope_F < 0 ? L"-" : L"+"
+slope_F_string = slope_F_sgn * slope_F_string
+intercept_F_sgn = intercept_F < 0 ? L"-" : L"+"
+
+slope_M_string = @sprintf("%.2f", abs(slope_M))
+intercept_M_string = @sprintf("%.1f", abs(intercept_M))
+slope_M_sgn = slope_M < 0 ? L"-" : L"+"
+slope_M_string = slope_M_sgn * slope_M_string
+intercept_M_sgn = intercept_M < 0 ? L"-" : L"+"
 
 
 # Build LaTeX-style label: log10(ξ) = m * log10(1 - q) + b
-fit_label_F = latexstring(L"y\propto\;", slope_str_F, L"\log(\tau)")
-fit_label_M = latexstring(L"y\propto\;", slope_str_M, L"\log(\tau)")
+fit_label_F = latexstring(L"y\propto\;", slope_F_string, L"\log(-\tau) ")
+fit_label_M = latexstring(L"y\propto\;", slope_M_string, L"\log(\tau)")
 
 # Fitted values
 fit_vals_F = slope_F .* log.(-log_q_vals) .+ intercept_F

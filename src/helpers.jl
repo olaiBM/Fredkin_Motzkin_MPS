@@ -1,6 +1,7 @@
 using ITensors, LinearAlgebra
 using ITensorMPS
 using LsqFit
+using JLD2
 
 function dense_mps(qn_mps::MPS)
     """
@@ -257,4 +258,34 @@ function load_q_data(N::Int, q_vals::Vector{Float64}, type::String)
         q_data_dict[q] = Sz_expect_data
     end
     return q_data_dict
+end
+
+
+function catalan(n::Integer)
+    n < 0 && throw(ArgumentError("n must be ≥ 0"))
+    C = big(1)  # use BigInt to avoid overflow
+    for k in 0:n-1
+        C = (4k + 2) * C ÷ (k + 2)
+    end
+    return C
+end
+
+function motzkin(n::Integer)
+    n < 0 && throw(ArgumentError("n must be ≥ 0"))
+
+    M = Vector{BigInt}(undef, n + 1)
+    M[1] = big(1)  # M[0]
+    if n >= 1
+        M[2] = big(1)  # M[1]
+    end
+
+    for i in 2:n
+        sum_term = zero(BigInt)
+        for k in 0:i-2
+            sum_term += M[k+1] * M[i-2-k+1]  # k and i-2-k are zero-indexed, so +1 for Julia
+        end
+        M[i+1] = M[i] + sum_term
+    end
+
+    return M[n+1]
 end
