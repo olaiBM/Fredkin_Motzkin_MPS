@@ -9,7 +9,7 @@ to make a reproducible scientific project named
 
 This repository was used to perform the numerical simulations for the paper:
 
-Olai B. Mykland, Zhao Zhang, Leveraging Translational and Scaling Invariance of Criticality, arXiv: https://arxiv.org/abs/2507.14656
+Olai B. Mykland, Zhao Zhang, Exact critical exponents of the Motzkin and Fredkin Chains, arXiv: https://arxiv.org/abs/2507.14656
 
 The data in `data/` and the figures in `plots/` correspond exactly to the results presented in the paper.
 
