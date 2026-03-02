@@ -14,13 +14,13 @@ Ls = L_start:1000:L_final
 qg1s =[1.001, 1.1, 1.2,  1.5] #[1.001, 1.1,  1.5]
 ql1s = [0.999, 0.9, 0.8, 0.5]#[0.999, 0.9,0.5]
 params_qg1 = (
-    regime = "q>1",
+    regime = "qg1",
     L_start = L_start,
     L_final = L_final,
 )
 
 params_ql1 = (
-    regime = "q<1",
+    regime = "ql1",
     L_start = L_start,
     L_final = L_final,
 )

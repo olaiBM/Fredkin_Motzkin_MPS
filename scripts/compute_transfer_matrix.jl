@@ -44,7 +44,7 @@ end
 end
 
 
-@save datadir("sims", savename((; L=L), "q>1_Fredkin_correlation_lengths.jld2")) xi_vals_qg1_F
-@save datadir("sims", savename((; L=L), "q<1_Fredkin_correlation_lengths.jld2")) xi_vals_ql1_F
-@save datadir("sims", savename((; L=L), "q>1_Motzkin_correlation_lengths.jld2")) xi_vals_qg1_M
-@save datadir("sims", savename((; L=L), "q<1_Motzkin_correlation_lengths.jld2")) xi_vals_ql1_M
+@save datadir("sims", savename((; L=L), "qg1_Fredkin_correlation_lengths.jld2")) xi_vals_qg1_F
+@save datadir("sims", savename((; L=L), "ql1_Fredkin_correlation_lengths.jld2")) xi_vals_ql1_F
+@save datadir("sims", savename((; L=L), "qg1_Motzkin_correlation_lengths.jld2")) xi_vals_qg1_M
+@save datadir("sims", savename((; L=L), "ql1_Motzkin_correlation_lengths.jld2")) xi_vals_ql1_M

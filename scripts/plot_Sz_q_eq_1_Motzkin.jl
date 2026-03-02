@@ -25,7 +25,7 @@ default(
 N = 1000
 r_vals = collect(1:N)
 q = 1.0
-@load datadir("sims", savename((; N = N, q = q), "_Motzkin_Sz.jld2")) Sz_expect_data
+@load datadir("sims", savename((N = N, q = q), "_Motzkin_Sz.jld2")) Sz_expect_data
 
 Sz_expect_analytic = [expect_Sz_analytic_M(r_vals[i]) for i in 1:N]
 
@@ -44,7 +44,7 @@ plot!(r_vals[1:50], Sz_expect_analytic[1:50],
      linestyle = :dot)
 
 
-savefig(plotsdir("Sz_Motzkin", savename((; N=N, q=q), "_[1:50]_Motzkin_Sz.pdf")))
+savefig(plotsdir("Sz_Motzkin", savename((N=N, q=q), "_1_to_50_Motzkin_Sz.pdf")))
 
 
 
@@ -63,5 +63,5 @@ plot!(r_vals[1:500], Sz_expect_analytic[1:500],
      linestyle = :dot)
 
 
-savefig(plotsdir("Sz_Motzkin", savename((; N=N, q=q), "_[1:500]_Motzkin_Sz.pdf")))
+savefig(plotsdir("Sz_Motzkin", savename((N=N, q=q), "_1_to_500_Motzkin_Sz.pdf")))
 

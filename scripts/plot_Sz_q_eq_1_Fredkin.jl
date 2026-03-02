@@ -44,7 +44,7 @@ plot!(r_vals[1:50], Sz_expect_analytic[1:50],
      linestyle = :dot)
 
 
-savefig(plotsdir("Sz_Fredkin", savename((; N=N, q=q), "_[1:50]_Fredkin_Sz.pdf")))
+savefig(plotsdir("Sz_Fredkin", savename((N=N, q=q), "_1_to_50_Fredkin_Sz.pdf")))
 
 
 
@@ -63,7 +63,7 @@ plot!(r_vals[1:500], Sz_expect_analytic[1:500],
      linestyle = :dot)
 
 
-savefig(plotsdir("Sz_Fredkin", savename((; N=N, q=q), "_[1:500]_Fredkin_Sz.pdf")))
+savefig(plotsdir("Sz_Fredkin", savename((N=N, q=q), "_1_to_500_Fredkin_Sz.pdf")))
 
 
 

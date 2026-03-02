@@ -24,10 +24,10 @@ q_vals_qg1 = [1.0005, 1.001, 1.0015, 1.002, 1.0025, 1.003, 1.0035, 1.004, 1.0045
 q_vals_ql1 = [0.9995, 0.999,0.9985, 0.998, 0.9975, 0.997, 0.9965, 0.996, 0.9955, 0.995, 0.994, 0.993, 0.992, 0.991, 0.99]
 
 
-@load datadir("sims", savename((; L=L), "q>1_Fredkin_correlation_lengths.jld2")) xi_vals_qg1_F
-@load datadir("sims", savename((; L=L), "q<1_Fredkin_correlation_lengths.jld2")) xi_vals_ql1_F
-@load datadir("sims", savename((; L=L), "q>1_Motzkin_correlation_lengths.jld2")) xi_vals_qg1_M
-@load datadir("sims", savename((; L=L), "q<1_Motzkin_correlation_lengths.jld2")) xi_vals_ql1_M
+@load datadir("sims", savename((; L=L), "qg1_Fredkin_correlation_lengths.jld2")) xi_vals_qg1_F
+@load datadir("sims", savename((; L=L), "ql1_Fredkin_correlation_lengths.jld2")) xi_vals_ql1_F
+@load datadir("sims", savename((; L=L), "qg1_Motzkin_correlation_lengths.jld2")) xi_vals_qg1_M
+@load datadir("sims", savename((; L=L), "ql1_Motzkin_correlation_lengths.jld2")) xi_vals_ql1_M
 
 
 ### Prepare for plotting 
